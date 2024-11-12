@@ -1,38 +1,330 @@
-.App {
+/* App.css */
+
+/* Title for the Product List Page */
+.page-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #d04e8a;
+  /* Darker pastel pink */
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+/* Container for the product list grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f9e5f6;
+  /* Soft pastel pink background */
+}
+
+/* Product card styling */
+.product-card {
+  background-color: #fff;
+  /* White background for product cards */
+  border: 1px solid #f0b7d3;
+  /* Pastel pink border */
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  max-height: 150px;
+  /* Keep the image size consistent */
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.product-card h3 {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  color: #d04e8a;
+  /* Darker pastel pink text */
+}
+
+.product-card p {
+  font-size: 0.9rem;
+  color: #7d3b59;
+  /* Muted purple/pink for text */
+}
+
+/* Button styling for Product Card */
+.product-card button,
+.cart-item button,
+.cart-sidebar button,
+.checkout button {
+  background-color: #f7a9c4;
+  /* Pastel pink button */
+  color: white;
+  border: none;
+  /* Ensure no border */
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+  outline: none;
+  /* Prevent focus outline */
+}
+
+/* Button hover effect */
+.product-card button:hover,
+.cart-item button:hover,
+.cart-sidebar button:hover,
+.checkout button:hover {
+  background-color: #f585a1;
+  /* Slightly darker pink on hover */
+  transform: scale(1.05);
+  /* Small scale effect on hover */
+}
+
+/* Prevent outline when the button is focused */
+.product-card button:focus,
+.cart-item button:focus,
+.cart-sidebar button:focus,
+.checkout button:focus {
+  outline: none;
+  /* Remove the focus outline */
+}
+
+/* Cart Sidebar Styling */
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 320px;
+  /* Slightly wider for better spacing */
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+  /* Slightly more pronounced shadow */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  overflow-y: auto;
+  border-radius: 12px 0 0 12px;
+  /* Rounded corners on the left side */
+  transition: transform 0.3s ease-in-out;
+  /* Smooth transition when opening/closing */
+}
+
+/* Sidebar Title */
+.cart-sidebar h2 {
+  font-size: 1.75rem;
+  /* Slightly larger title */
+  margin-bottom: 25px;
+  color: #d04e8a;
+  /* Darker pastel pink */
+  font-weight: 600;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Cart Item */
+.cart-item {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-bottom: 20px;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #f8cce5;
+  /* Soft pastel pink background for items */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  /* Soft shadow for items */
+  transition: background-color 0.3s ease;
+}
+
+.cart-item:hover {
+  background-color: #f7a9c4;
+  /* Slightly darker pink when hovering over items */
+}
+
+/* Cart Item Image */
+.cart-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+/* Cart Item Title */
+.cart-item h4 {
+  flex-grow: 1;
+  margin-left: 12px;
+  color: #7d3b59;
+  /* Muted purple-pink */
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Remove Button Styling for Cart Item */
+.cart-item button {
+  background-color: #f7a9c4;
+  /* Pastel pink for remove button */
   color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.cart-item button:hover {
+  background-color: #f585a1;
+  /* Slightly darker pink on hover */
+  transform: scale(1.05);
+  /* Small scale effect on hover */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cart-item button:focus {
+  outline: 2px solid #d04e8a;
+  /* Focus outline for better accessibility */
+}
+
+/* Cart Sidebar Total */
+.cart-sidebar .total {
+  font-size: 1.5rem;
+  /* Larger text for total */
+  font-weight: 700;
+  margin-top: auto;
+  color: #d04e8a;
+  /* Darker pastel pink */
+  text-align: center;
+}
+
+/* Sidebar Checkout Button */
+.cart-sidebar button {
+  background-color: #f7a9c4;
+  /* Pastel pink button */
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
+}
+
+.cart-sidebar button:hover {
+  background-color: #f585a1;
+  /* Slightly darker pink on hover */
+  transform: scale(1.05);
+  /* Small scale effect on hover */
+}
+
+.cart-sidebar button:focus {
+  outline: 2px solid #d04e8a;
+  /* Focus outline for better accessibility */
+}
+
+/* Smooth Transition for Sidebar (when opened/closed) */
+.cart-sidebar.slide-in {
+  transform: translateX(0);
+}
+
+.cart-sidebar.slide-out {
+  transform: translateX(100%);
+}
+
+/* Checkout Page Styling */
+.checkout {
+  background-color: #f9e5f6;
+  /* Soft pastel pink background for checkout */
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.checkout h2 {
+  font-size: 2rem;
+  color: #d04e8a;
+  /* Darker pastel pink for headings */
+  margin-bottom: 1.5rem;
+}
+
+.checkout ul {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.checkout li {
+  font-size: 1rem;
+  color: #7d3b59;
+  /* Muted purple/pink for text */
+  margin-bottom: 0.75rem;
+}
+
+.checkout h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #d04e8a;
+  /* Darker pastel pink for the total */
+  margin-bottom: 1.5rem;
+}
+
+/* Checkout Button Styling */
+.checkout button {
+  background-color: #f7a9c4;
+  /* Pastel pink button */
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none;
+  margin: 0.5rem;
+}
+
+.checkout button:hover {
+  background-color: #f585a1;
+  /* Slightly darker pink on hover */
+  transform: scale(1.05);
+  /* Small scale effect on hover */
+}
+
+.checkout button:focus {
+  outline: none;
+  /* Remove the focus outline */
+}
+
+.checkout .cancel-button {
+  background-color: #e03e3e;
+  /* Soft red for the cancel button */
+  margin-right: 1rem;
+}
+
+.checkout .cancel-button:hover {
+  background-color: #c0392b;
+  /* Darker red on hover */
+}
+
+.checkout .pay-button {
+  background-color: #8e44ad;
+  /* Purple for the pay button */
+}
+
+.checkout .pay-button:hover {
+  background-color: #732d91;
+  /* Darker purple on hover */
 }
